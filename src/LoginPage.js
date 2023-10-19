@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
+import './LoginPage.css';
 
 function LoginPage({ onLogin }) {
   const [name, setName] = useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
-    
   }
 
   const handleLogin = () => {
@@ -21,10 +21,11 @@ function LoginPage({ onLogin }) {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="login-container">
+      <h1>SportSync</h1>
+      <img src="sports-logo.png" alt="" className="logo" />
       <div>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Enter Your Name:</label>
         <input
           type="text"
           id="name"
