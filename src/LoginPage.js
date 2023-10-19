@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 
-function LoginPage() {
+function LoginPage({ onLogin }) {
   const [name, setName] = useState('');
-  
+
   const handleNameChange = (e) => {
     setName(e.target.value);
+    
   }
 
   const handleLogin = () => {
     if (name.trim() !== '') {
       // Store the name in a cookie
       Cookies.set('user_name', name);
-      // Redirect to another page or perform further actions
-      // For now, just refresh the page to simulate a redirect
-      window.location.reload();
+      // Call the login handler to set the loggedIn state in App.js
+      onLogin();
     } else {
       alert('Please enter a valid name.');
     }
